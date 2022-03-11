@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block title %}Results{% endblock %}
+
+{% block content %}
+    <a href="/" class="text-decoration-none btn btn-info text-dark ps-4 pe-4 mb-4 fw-bold"> <i class="bi bi-arrow-return-left"></i> Regresar</a>
+    <h1>{{ question.question_text }}</h1>
+
+    <ul class="mt-5">
+    {% for choice in question.choice_set.all %}
+        <div class="btn bg-info me-3 mb-3">
+            <li class="list-group-item bg-info border border-info text-dark p-3 fs-5">{{ choice.choice_text }} <span class="badge {% if choice.votes == 0 %} bg-danger {% else %} bg-success {% endif %} d-inline-block ms-3 fs-6">{{ choice.votes }} vote{{ choice.votes|pluralize }}</span></li>
+        </div>
+    {% endfor %}
+    </ul>
+
+    <a href="{% url 'polls:detail' question.id %}" class="btn btn-primary">Votar de nuevo</a>
+{% endblock %}
+
+    Notifications <span class="badge bg-secondary">4</span>

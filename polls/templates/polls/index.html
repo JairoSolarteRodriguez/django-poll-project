@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block title %}Polls{% endblock %}
+
+{% block content %}
+    {% if latest_question_list %}
+                {% for question in latest_question_list %}
+                    <li class="list-group-item mt-5 mb-5 shadow-lg p-3 mb-5 rounded bg-dark bg-gradient ">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="{% url 'polls:detail' question.id %}" class="text text-light fs-4 text-decoration-none">{{ question.question_text }}</a></h5>
+                            <p class="card-text text-light">Responde esta encuesta</p>
+                            <a href="{% url 'polls:detail' question.id %}" class="btn btn-info text-dark">Responder</a><br/>
+                            <span class="text-light">{{ question.pub_date }}</span>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No hay encuestas en este momento porfavor intente más tarde</p>
+        {% endif %}
+        </div>
+
+{% endblock %}
