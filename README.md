@@ -47,10 +47,11 @@ Windows using git bash
 Install all packages
 ```bash
     pip install -r requirements.txt
+```
+start development server
+remember to create the database before
 
-    start development server
-    remember to create the database before
-
+```bash
     py || python || python3 manage.py migrate
 ```
 ## Authors
