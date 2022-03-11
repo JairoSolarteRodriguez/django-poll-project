@@ -59,7 +59,7 @@ Install all packages
 
 ## Tech Stack
 
-**Client:** Html, django templates
+**Client:** Html, django templates, boostrap5
 
 **Server:** mysql, django
 
